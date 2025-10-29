@@ -31,7 +31,7 @@ function displayMovies(movieArray) {
   movieListContainer.innerHTML = "";
 
   for (const movie of movieArray) {
-    displayMovie(movie);
+    displayMovie(movie); 
   }
 
   console.log(`🎉 ${movieArray.length} movies vist!`);
@@ -54,5 +54,5 @@ document.addEventListener("DOMContentLoaded", initApp);
 
 function initApp() {
   loadMovies();
-}
+} 
 

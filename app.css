@@ -440,5 +440,13 @@ dialog#movie-dialog::backdrop {
 }
 
 
+/* Tilføj til din app.css */
+.movie-card {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
 
-
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
