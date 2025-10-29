@@ -39,14 +39,14 @@ function displayMovies(movieArray) {
 
 // ========== LOAD MOVIES FROM JSON ==========
 async function loadMovies() {
-  console.log("🌐 Henter movies fra JSON...");
+  console.log("🌐 Henter movies fra JSON..."); 
 
   const response = await fetch("https://raw.githubusercontent.com/cederdorff/race/refs/heads/master/data/movies.json");
   const moviesFromJSON = await response.json();
 
   console.log("📊 Data modtaget:", moviesFromJSON.length, "movies");
 
-  displayMovies(moviesFromJSON);
+  displayMovies(moviesFromJSON); 
 }
 
 // ===== APP INITIALISERING =====
