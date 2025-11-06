@@ -60,8 +60,9 @@ main {
    ===================== */
 .filterbar {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
-  align-items: center;
+  align-items: flex-end;
   margin-bottom: 2rem;
 }
 
@@ -611,3 +612,156 @@ dialog#movie-dialog::backdrop {
     width: 100px;
   }
 }
+
+/* =====================
+   FILTERBAR (SØG/SORT/FILTER)
+   ===================== */
+.filterbar {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(172, 198, 201, 0.1);
+}
+
+/* Filter rækker */
+.filter-row-main {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filter-row-ranges {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 1rem;
+  align-items: end;
+}
+
+/* Filter grupper */
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+  display: block;
+}
+
+/* Range grupper */
+.range-group {
+  flex: 1;
+}
+
+.range-label {
+  margin-bottom: 0.5rem;
+}
+
+.range-inputs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.range-separator {
+  color: var(--secondary);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Input felter styling */
+#search-input,
+#genre-select,
+#sort-select,
+#year-from,
+#year-to,
+#rating-from,
+#rating-to {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid rgba(172, 198, 201, 0.3);
+  border-radius: calc(var(--radius) * 0.5);
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: var(--transition);
+  width: 100%;
+}
+
+#search-input:focus,
+#genre-select:focus,
+#sort-select:focus,
+#year-from:focus,
+#year-to:focus,
+#rating-from:focus,
+#rating-to:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(172, 198, 201, 0.2);
+}
+
+#search-input::placeholder,
+#year-from::placeholder,
+#year-to::placeholder,
+#rating-from::placeholder,
+#rating-to::placeholder {
+  color: var(--text-light);
+  opacity: 0.6;
+}
+
+#genre-select,
+#sort-select {
+  cursor: pointer;
+}
+
+/* Search group særlig styling */
+.search-group {
+  grid-column: 1 / 2;
+}
+ 
+
+/* =====================
+   RESPONSIVE & ACCESSIBILITY
+   ===================== */
+@media (max-width: 480px) {
+  #movie-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .movie-card {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  header h1 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.movie-card:focus-visible,
+#close-dialog:focus-visible {
+  outline: 3px solid var(--secondary);
+  outline-offset: 2px;
+}
+
+/* =====================
+   DARK MODE ADJUSTMENTS
+   ===================== */
+@media (prefers-color-scheme: dark) {
+  .movie-year {
+    background: var(--primary);
+    color: var(--secondary);
+  }
+  #dialog-content .movie-year {
+    background: var(--primary);
+    color: var(--secondary);
+  }
+  #close-dialog {
+    background: rgba(23, 23, 23, 0.9);
+  }
+} 

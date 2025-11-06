@@ -231,6 +231,8 @@ function showMovieModal(movie) {
     </div>
   `;
 
+
+
   // Åbn modalen
   document.querySelector("#movie-dialog").showModal();
 }
